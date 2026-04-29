@@ -49,3 +49,4 @@ saves/*
 *.tmp
 *.temp
 docs/
+.cache/

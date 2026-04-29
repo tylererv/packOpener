@@ -26,3 +26,12 @@ CMake downloads raylib and raylib-cpp through `FetchContent` during configuratio
 The implementation intentionally demonstrates inheritance, constructors, destructors, static class data, const class data, virtual methods, overloading, operators, non-inheritance class relationships, standalone functions with default arguments, dynamic memory management, static arrays, dynamic arrays, recursion, linked lists, typecasting, enumerations, streams/files, visualization, and multifile organization.
 
 Card and pack content lives in simple pipe-delimited text files under `data/`. Progress is saved with raylib's cross-platform storage API.
+
+See `docs/contentGuide.md` for instructions on adding new cards, creating packs, and controlling pull chances.
+
+For a deeper explanation of the codebase, read:
+
+- `docs/fileReference.md`
+- `docs/runtimeFlow.md`
+- `docs/classArchitecture.md`
+- `docs/dataAndPersistence.md`

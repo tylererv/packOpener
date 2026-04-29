@@ -3,3 +3,5 @@ starterCharmPack|Starter Charm Pack|0|4|common:85,uncommon:14,rare:1|emberSprite
 adeptSigilPack|Adept Sigil Pack|45|4|common:50,uncommon:35,rare:14,epic:1|emberSprite,mudGolem,candleHex,thornBuckler,runeApprentice,mirrorMoth,stormInk,moonlitChalice,wyvernPage,voidContract,astralKnight
 royalVaultPack|Royal Vault Pack|180|8|common:24,uncommon:40,rare:27,epic:8,legendary:1|runeApprentice,mirrorMoth,stormInk,moonlitChalice,wyvernPage,voidContract,astralKnight,crownOfTheFirstDawn
 megaArcanaPack|Mega Arcana Pack|500|20|common:20,uncommon:36,rare:30,epic:12,legendary:2|emberSprite,mudGolem,candleHex,thornBuckler,runeApprentice,mirrorMoth,stormInk,moonlitChalice,wyvernPage,voidContract,astralKnight,crownOfTheFirstDawn
+testPack|Test Pack|1|1|common:100|emberSprite
+testPack2|Test Pack|1|1|uncommon:100|mudGolem

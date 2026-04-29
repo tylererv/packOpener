@@ -9,41 +9,42 @@
 #include <iostream>
 #include <string>
 
-int main()
-{
-    const int screenWidth = 1100;
-    const int screenHeight = 700;
-    const std::string cardDataPath = "data/cards.txt";
-    const std::string packDataPath = "data/packs.txt";
+using namespace std;
 
-    CardDatabase cardDatabase;
-    PackDatabase packDatabase;
-    GameState gameState;
-    SaveService saveService;
+int main() {
+  const int screenWidth = 1100;
+  const int screenHeight = 700;
+  const string cardDataPath = "data/cards.txt";
+  const string packDataPath = "data/packs.txt";
 
-    if (!cardDatabase.loadFromFile(cardDataPath) || !packDatabase.loadFromFile(packDataPath))
-    {
-        std::cerr << "Failed to load required game data.\n";
-        return 1;
-    }
+  CardDatabase cardDatabase;
+  PackDatabase packDatabase;
+  GameState gameState;
+  SaveService saveService;
 
-    saveService.loadGame(gameState, cardDatabase);
+  if (!cardDatabase.loadFromFile(cardDataPath) ||
+      !packDatabase.loadFromFile(packDataPath)) {
+    cerr << "Failed to load required game data.\n";
+    return 1;
+  }
 
-    raylib::Window window(screenWidth, screenHeight, "packOpener");
-    SetTargetFPS(60);
+  saveService.loadGame(gameState, cardDatabase);
 
-    GuiController guiController(cardDatabase, packDatabase, gameState, saveService, "raylib-storage");
+  raylib::Window window(screenWidth, screenHeight, "packOpener");
+  SetTargetFPS(60);
 
-    while (!window.ShouldClose())
-    {
-        guiController.update();
+  GuiController guiController(cardDatabase, packDatabase, gameState,
+                              saveService, "raylib-storage");
 
-        BeginDrawing();
-        ClearBackground(Color{18, 21, 26, 255});
-        guiController.draw();
-        EndDrawing();
-    }
+  while (!window.ShouldClose()) {
+    guiController.update();
 
-    saveService.saveGame(gameState, cardDatabase);
-    return 0;
+    BeginDrawing();
+    ClearBackground(Color{18, 21, 26, 255});
+    guiController.draw();
+    EndDrawing();
+  }
+
+  saveService.saveGame(gameState, cardDatabase);
+  return 0;
 }
