@@ -1,0 +1,51 @@
+# Build directories
+build/
+cmake-build-*/
+out/
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+CPackConfig.cmake
+CPackSourceConfig.cmake
+CTestTestfile.cmake
+Makefile
+compile_commands.json
+
+# Compiled objects, libraries, and executables
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dylib
+*.dll
+*.exe
+*.app/
+packOpener
+
+# Dependency/build fetches
+_deps/
+FetchContent_*/
+
+# Local save data
+saves/*
+!saves/.gitkeep
+*.save
+*.sav
+*.data
+
+# macOS and editor noise
+.DS_Store
+._*
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+docs/

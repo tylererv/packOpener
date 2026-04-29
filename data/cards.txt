@@ -1,0 +1,13 @@
+# id|name|rarity|cardType|sellValue|description|powerValue|imagePath
+emberSprite|Ember Sprite|common|creature|5|A small flame familiar that sparks when challenged.|3|
+mudGolem|Mud Golem|common|creature|6|A slow guardian shaped from river clay.|4|
+candleHex|Candle Hex|common|spell|4|A simple curse that flickers before it strikes.|1|
+thornBuckler|Thorn Buckler|common|relic|7|A shield that punishes careless attackers.|5|
+runeApprentice|Rune Apprentice|uncommon|creature|14|A student who can read unstable battle glyphs.|7|
+mirrorMoth|Mirror Moth|uncommon|creature|16|Its wings show the last spell cast nearby.|8|
+stormInk|Storm Ink|uncommon|spell|18|A charged sigil poured directly into the air.|3|
+moonlitChalice|Moonlit Chalice|rare|relic|45|A silver cup that stores a sliver of night.|12|
+wyvernPage|Wyvern Page|rare|creature|52|A young rider chosen by a restless sky-beast.|14|
+voidContract|Void Contract|epic|spell|125|A dangerous pact written where light cannot reach.|8|
+astralKnight|Astral Knight|epic|creature|145|A warrior whose armor remembers fallen constellations.|25|
+crownOfTheFirstDawn|Crown of the First Dawn|legendary|relic|420|A lost crown said to wake the oldest sun.|50|
