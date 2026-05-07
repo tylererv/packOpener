@@ -35,3 +35,4 @@ For a deeper explanation of the codebase, read:
 - `docs/runtimeFlow.md`
 - `docs/classArchitecture.md`
 - `docs/dataAndPersistence.md`
+- `docs/projectWalkthroughAndPresentationScript.md`

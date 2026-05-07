@@ -79,7 +79,7 @@ int clampInt(int value, int minValue, int maxValue) {
 }
 
 bool drawTextButton(Rectangle bounds, const string &label) {
-  return drawTextButton(bounds, label, Color{42, 48, 58, 255}, RAYWHITE);
+  return drawTextButton(bounds, label, Color{58, 58, 58, 255}, RAYWHITE);
 }
 
 bool drawTextButton(Rectangle bounds, const string &label, Color fillColor,
@@ -87,18 +87,10 @@ bool drawTextButton(Rectangle bounds, const string &label, Color fillColor,
   const Vector2 mousePosition = GetMousePosition();
   const bool isHovered = CheckCollisionPointRec(mousePosition, bounds);
   const bool isClicked = isHovered && IsMouseButtonPressed(MOUSE_LEFT_BUTTON);
-  const Color buttonColor = isHovered
-                                ? Color{static_cast<unsigned char>(
-                                            clampInt(fillColor.r + 25, 0, 255)),
-                                        static_cast<unsigned char>(
-                                            clampInt(fillColor.g + 25, 0, 255)),
-                                        static_cast<unsigned char>(
-                                            clampInt(fillColor.b + 25, 0, 255)),
-                                        fillColor.a}
-                                : fillColor;
+  const Color buttonColor = isHovered ? Color{82, 82, 82, 255} : fillColor;
 
-  DrawRectangleRounded(bounds, 0.12f, 8, buttonColor);
-  DrawRectangleLinesEx(bounds, 1.0f, Color{95, 105, 118, 255});
+  DrawRectangleRec(bounds, buttonColor);
+  DrawRectangleLinesEx(bounds, 2.0f, BLACK);
 
   const int fontSize = 18;
   const int textWidth = MeasureText(label.c_str(), fontSize);

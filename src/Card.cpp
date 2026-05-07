@@ -147,9 +147,9 @@ const string &Card::getImagePath() const { return imagePath; }
 void Card::draw(Rectangle bounds, bool selected) const {
   const Color rarityColor =
       rarityColors[static_cast<size_t>(static_cast<int>(rarity))];
-  DrawRectangleRounded(bounds, 0.08f, 10, fadeColor(rarityColor, 0.92f));
+  DrawRectangleRec(bounds, rarityColor);
   DrawRectangleLinesEx(bounds, selected ? 3.0f : 1.0f,
-                       selected ? WHITE : Color{35, 39, 45, 255});
+                       selected ? WHITE : BLACK);
 
   const Rectangle artBounds{bounds.x + 10.0f, bounds.y + 10.0f,
                             bounds.width - 20.0f, bounds.height * 0.42f};
@@ -166,18 +166,18 @@ void Card::draw(Rectangle bounds, bool selected) const {
   } else {
     DrawRectangle(static_cast<int>(artBounds.x), static_cast<int>(artBounds.y),
                   static_cast<int>(artBounds.width),
-                  static_cast<int>(artBounds.height), fadeColor(WHITE, 0.18f));
+                  static_cast<int>(artBounds.height), Color{210, 210, 210, 255});
   }
 
   drawCardName(name, bounds);
   DrawText(getDisplayType().c_str(), static_cast<int>(bounds.x + 12),
            static_cast<int>(bounds.y + bounds.height * 0.64f), 14,
-           Color{235, 238, 242, 255});
+           WHITE);
   DrawText(toString(rarity).c_str(), static_cast<int>(bounds.x + 12),
            static_cast<int>(bounds.y + bounds.height * 0.73f), 14, RAYWHITE);
   DrawText(formatCash(sellValue).c_str(), static_cast<int>(bounds.x + 12),
            static_cast<int>(bounds.y + bounds.height * 0.84f), 16,
-           Color{30, 34, 38, 255});
+           BLACK);
 }
 
 bool Card::operator<(const Card &other) const {
