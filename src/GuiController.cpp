@@ -11,7 +11,7 @@ using namespace std;
 namespace {
 void drawTopBar(GuiController &guiController, ScreenType activeScreen) {
   const GameState &gameState = guiController.getGameState();
-  DrawRectangle(0, 0, 1100, 72, Color{23, 27, 33, 255});
+  DrawRectangle(0, 0, 1100, 72, Color{42, 42, 42, 255});
   DrawText("packOpener", 28, 20, 28, RAYWHITE);
   DrawText(formatCash(gameState.getCash()).c_str(), 925, 22, 24,
            Color{116, 221, 142, 255});
@@ -23,7 +23,7 @@ void drawTopBar(GuiController &guiController, ScreenType activeScreen) {
     const bool isActive = static_cast<int>(activeScreen) == tabIndex;
     if (drawTextButton(
             tabBounds, defaultTabLabels[static_cast<size_t>(tabIndex)],
-            isActive ? Color{73, 88, 110, 255} : Color{37, 43, 52, 255},
+            isActive ? Color{92, 92, 92, 255} : Color{55, 55, 55, 255},
             RAYWHITE)) {
       guiController.changeScreen(static_cast<ScreenType>(tabIndex));
     }
@@ -73,7 +73,7 @@ public:
 
     const vector<Pack> &packs = guiController.getPackDatabase().getPacks();
     const Rectangle scrollArea{40.0f, 174.0f, 1020.0f, 420.0f};
-    DrawRectangleRec(scrollArea, Color{18, 21, 26, 255});
+    DrawRectangleRec(scrollArea, Color{30, 30, 30, 255});
     BeginScissorMode(static_cast<int>(scrollArea.x),
                      static_cast<int>(scrollArea.y),
                      static_cast<int>(scrollArea.width),
@@ -85,8 +85,8 @@ public:
       const float y =
           184.0f + static_cast<float>((packIndex / 3) * 200) - scrollOffset;
       const Rectangle packBounds{x, y, 304.0f, 180.0f};
-      DrawRectangleRounded(packBounds, 0.08f, 10, Color{35, 41, 50, 255});
-      DrawRectangleLinesEx(packBounds, 1.0f, Color{86, 96, 112, 255});
+      DrawRectangleRec(packBounds, Color{52, 52, 52, 255});
+      DrawRectangleLinesEx(packBounds, 2.0f, BLACK);
       DrawText(pack.getName().c_str(), static_cast<int>(x + 18),
                static_cast<int>(y + 16), 22, RAYWHITE);
       DrawText(("Cards: " + to_string(pack.getCardCount())).c_str(),
@@ -118,7 +118,7 @@ public:
       }
     }
     EndScissorMode();
-    DrawRectangleLinesEx(scrollArea, 1.0f, Color{50, 58, 70, 255});
+    DrawRectangleLinesEx(scrollArea, 2.0f, BLACK);
 
     const int rowCount = static_cast<int>(ceil(
         static_cast<float>(max(static_cast<int>(packs.size()), 1)) / 3.0f));
@@ -129,9 +129,9 @@ public:
       const float maxScroll = contentHeight - scrollArea.height;
       const float thumbY = scrollArea.y + (scrollOffset / maxScroll) *
                                               (scrollArea.height - thumbHeight);
-      DrawRectangleRounded(Rectangle{scrollArea.x + scrollArea.width - 12.0f,
-                                     thumbY, 7.0f, thumbHeight},
-                           0.5f, 8, Color{116, 128, 145, 255});
+      DrawRectangleRec(Rectangle{scrollArea.x + scrollArea.width - 12.0f,
+                                 thumbY, 7.0f, thumbHeight},
+                       Color{140, 140, 140, 255});
     }
     drawNavigationButtons(guiController);
   }
@@ -214,7 +214,7 @@ public:
       }
 
       const Rectangle scrollArea{40.0f, 220.0f, 1020.0f, 374.0f};
-      DrawRectangleRec(scrollArea, Color{24, 28, 34, 255});
+      DrawRectangleRec(scrollArea, Color{30, 30, 30, 255});
       BeginScissorMode(static_cast<int>(scrollArea.x),
                        static_cast<int>(scrollArea.y),
                        static_cast<int>(scrollArea.width),
@@ -232,7 +232,7 @@ public:
         card->draw(Rectangle{x, y, 145.0f, 160.0f});
       }
       EndScissorMode();
-      DrawRectangleLinesEx(scrollArea, 1.0f, Color{86, 96, 112, 255});
+      DrawRectangleLinesEx(scrollArea, 2.0f, BLACK);
 
       const int rowCount = static_cast<int>(
           ceil(static_cast<float>(max(revealedCardCount, 1)) / 6.0f));
@@ -244,9 +244,9 @@ public:
         const float thumbY =
             scrollArea.y +
             (scrollOffset / maxScroll) * (scrollArea.height - thumbHeight);
-        DrawRectangleRounded(Rectangle{scrollArea.x + scrollArea.width - 12.0f,
-                                       thumbY, 7.0f, thumbHeight},
-                             0.5f, 8, Color{116, 128, 145, 255});
+        DrawRectangleRec(Rectangle{scrollArea.x + scrollArea.width - 12.0f,
+                                   thumbY, 7.0f, thumbHeight},
+                         Color{140, 140, 140, 255});
       }
     }
 
@@ -299,8 +299,8 @@ public:
       if (y > 570.0f)
         break;
 
-      DrawRectangleRounded(Rectangle{40, y, 900, 38}, 0.08f, 8,
-                           Color{35, 41, 50, 255});
+      DrawRectangleRec(Rectangle{40, y, 900, 38}, Color{52, 52, 52, 255});
+      DrawRectangleLinesEx(Rectangle{40, y, 900, 38}, 1.0f, BLACK);
       DrawText(card->getName().c_str(), 58, static_cast<int>(y + 10), 16,
                RAYWHITE);
       DrawText(card->getDisplayType().c_str(), 300, static_cast<int>(y + 10),

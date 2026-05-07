@@ -45,6 +45,7 @@ int main() {
     EndDrawing();
   }
 
+  // Save game before exiting
   saveService.saveGame(gameState, cardDatabase);
   return 0;
 }

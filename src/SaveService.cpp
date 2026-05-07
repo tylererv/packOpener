@@ -12,16 +12,13 @@
 using namespace std;
 
 namespace {
-// raylib 5.x removed SaveStorageValue/LoadStorageValue.
-// These helpers replicate the original behaviour: a flat binary file of
-// ints, indexed by an unsigned int slot key.
 
 constexpr const char *storageFilePath = "saves/storage.data";
 
 // Returns the current storage buffer, resized to hold at least (position+1)
 // ints.
 vector<int> readStorageFile() {
-  int dataSize = 0;
+  int dataSize = 0; 
   unsigned char *raw = LoadFileData(storageFilePath, &dataSize);
   vector<int> buf;
   if (raw && dataSize > 0) {
